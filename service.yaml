@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"netflix-app"},"name":"netflix-app","namespace":"default"},"spec":{"ports":[{"nodePort":30007,"port":80,"targetPort":80}],"selector":{"app":"netflix-app"},"type":"LoadBalancer"}}
+  creationTimestamp: "2026-06-20T16:36:23Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: netflix-app
+  name: netflix-app
+  namespace: default
+  resourceVersion: "60091"
+  uid: 33e4e9b9-048f-4fc3-8067-65d1b3b031a5
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.100.143.195
+  clusterIPs:
+  - 10.100.143.195
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30007
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: netflix-app
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - hostname: a33e4e9b9048f4fc3806765d1b3b031a-1906791732.ap-south-1.elb.amazonaws.com
